@@ -1,5 +1,7 @@
 node_modules/
 /public/
+apps/web/public/index.html
+apps/web/public/assets/
 dist/
 dist-ssr/
 build/
