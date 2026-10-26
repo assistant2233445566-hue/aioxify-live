@@ -3,6 +3,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "apps/web/dist",
   "rewrites": [
-    { "source": "/((?!google06519311b9bb0c4e\\.html).*)", "destination": "/index.html" }
+    { "source": "/((?!google06519311b9bb0c4e\\.html|sitemap\\.xml|robots\\.txt).*)", "destination": "/index.html" }
   ]
 }
