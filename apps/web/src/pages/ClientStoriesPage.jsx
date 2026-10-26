@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, PlayCircle, Star, MessageCircle } from 'lucide-react';
+import { Star, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { clientStories as stories } from '@/data/clientStories';
@@ -22,8 +22,8 @@ const ClientStoriesPage = () => {
       <div className="container mx-auto px-4">
         <PageHero
           kicker="Case studies"
-          title="Success breathed by Aioxify"
-          subtitle='Hear directly from businesses who have experienced the transformative power of Aioxify’s "AI oxygen."'
+          title="What founders & CEOs say"
+          subtitle="The same SopnoTec reviews from our site — PUZZLE X, Longevity Labs, Soluorient, and GroundScapes."
         />
 
         <motion.div 
@@ -43,16 +43,13 @@ const ClientStoriesPage = () => {
                        <img
                         className="w-full h-full object-cover"
                         alt={story.videoPlaceholder}
-                        src="https://images.unsplash.com/photo-1696041757866-f19a8e46fab1" />
-                       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                         <PlayCircle className="w-16 h-16 text-white/80 group-hover:text-primary transition-colors" />
-                       </div>
+                        src={story.photo} />
                      </div>
                      <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-primary mb-2">
                        <img
                         className="w-full h-full object-cover"
                         alt={`Portrait of ${story.person}`}
-                        src="https://images.unsplash.com/photo-1626054165894-be2779f52260" />
+                        src={story.photo} />
                      </div>
                      <p className="text-sm font-semibold text-foreground">{story.person}</p>
                      <p className="text-xs text-muted-foreground">{story.companyName} - {story.industry}</p>

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Check, X, Stethoscope, Landmark, Building2, Factory, ShoppingCart } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Check, X } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import BookCallDialog from '@/components/layout/BookCallDialog';
-import { clientStories } from '@/data/clientStories';
+import SopnotecReviews from '@/components/xtract/SopnotecReviews';
 
-const logos = ['InnovateHealth', 'FinFlow', 'UrbanNest', 'Healthcare', 'FinTech', 'Property', 'Manufacturing', 'E-commerce'];
-const tags = ['Voice agents', 'Chatbots', 'KYC', 'QBO automation', 'HIPAA', 'Workflows', 'OpenAI', 'Predictive AI'];
+const logos = ['PUZZLE X', 'MATTER', 'Longevity Labs', 'Soluorient', 'GroundScapes', 'The Good Life Bars', 'SopnoTec', 'Aioxify'];
+const tags = ['SopnoTec', 'Executive support', 'Calendly', 'Airtable', 'HubSpot', 'QuickBooks', 'Zapier', 'CRM'];
 const photos = [
   'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80',
   'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
@@ -27,25 +28,50 @@ const StudioHome = () => {
   return (
     <div className="studio-page">
       <section className="relative container mx-auto px-4 pt-16 pb-20 min-h-[86vh] flex flex-col items-center justify-center text-center">
-        <div className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] p-1 pr-4 mb-10">
+        <motion.div
+          className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] p-1 pr-4 mb-10"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+        >
           <span className="rounded-full bg-[#6d28d9] px-3 py-1 text-xs font-bold text-white">2025</span>
           <span className="ml-3 text-sm text-white/80">AI Oxygen for Business</span>
-        </div>
-        <p className="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-none text-white mb-2">
+        </motion.div>
+        <motion.p
+          className="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-none text-white mb-2"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.22, duration: 0.5 }}
+        >
           Automate, Integrate,
-        </p>
-        <h1 className="font-sans font-extrabold text-5xl sm:text-7xl md:text-[6.5rem] tracking-[-0.04em] leading-[0.9] text-white mb-8 max-w-6xl">
+        </motion.p>
+        <motion.h1
+          className="font-sans font-extrabold text-5xl sm:text-7xl md:text-[6.5rem] tracking-[-0.04em] leading-[0.9] text-white mb-8 max-w-6xl"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
           Dominate.
-        </h1>
-        <p className="max-w-xl text-white/50 text-base md:text-lg mb-10">
+        </motion.h1>
+        <motion.p
+          className="max-w-xl text-white/50 text-base md:text-lg mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.38, duration: 0.45 }}
+        >
           Aioxify infuses AI into your workflows like oxygen fuels life. Voice agents, KYC, tenant ops, shop-floor AI, and no-code automation—so operations keep breathing after hours.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
+        </motion.p>
+        <motion.div
+          className="flex flex-wrap gap-3 justify-center"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 0.45 }}
+        >
           <Cta label="Get a Free Consultation" />
           <Link to="/solutions" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-2.5 text-sm hover:bg-white/10">
             Explore AI Solutions <ArrowUpRight className="h-4 w-4" />
           </Link>
-        </div>
+        </motion.div>
       </section>
 
       <div className="overflow-hidden border-y border-white/10 py-6">
@@ -135,27 +161,7 @@ const StudioHome = () => {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-20">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
-          <div>
-            <p className="text-xs tracking-[0.2em] uppercase text-white/50 mb-3">Client stories</p>
-            <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl leading-tight">Proof from live operations</h2>
-          </div>
-          <Link to="/client-stories" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-2.5 text-sm">View client stories</Link>
-        </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          {clientStories.map((story, i) => (
-            <Link key={story.slug} to={`/client-stories/${story.slug}`} className="rounded-[1.6rem] border border-white/10 overflow-hidden bg-white/[0.03]">
-              <img src={photos[i]} alt="" className="h-52 w-full object-cover" />
-              <div className="p-5">
-                <p className="text-xs text-white/50 mb-2">2025 · {story.industry}</p>
-                <h3 className="text-xl font-semibold mb-2">{story.companyName}</h3>
-                <p className="text-sm text-white/55 line-clamp-3">{story.quote}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <SopnotecReviews />
 
       <section className="container mx-auto px-4 py-20 grid lg:grid-cols-2 gap-10 items-center">
         <div>
@@ -163,7 +169,7 @@ const StudioHome = () => {
           <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl mb-6">Here when you need us most.</h2>
           <p className="text-white/60 mb-8">Specialists who stay after go-live—tuning agents, workflows, and compliance with you.</p>
           <div className="space-y-4">
-            {[['Fast responses', 'Operators get answers when a bot or workflow stalls.'], ['Industry guidance', 'Healthcare, FinTech, property, manufacturing, e-commerce.'], ['Continuous optimization', 'We keep models, prompts, and integrations current.']].map(([t, b]) => (
+            {[['Fast responses', 'Sales and ops get answers when a queue or ticket stalls.'], ['Industry guidance', 'Benefits sales, operations, UK property, and author programmes.'], ['Continuous optimization', 'Sopnotec stays on the desk after go-live—setters, VAs, and tickets.']].map(([t, b]) => (
               <div key={t}>
                 <h3 className="font-semibold">{t}</h3>
                 <p className="text-sm text-white/55">{b}</p>
@@ -175,39 +181,6 @@ const StudioHome = () => {
           <p className="text-sm text-white/50 mb-2">Problem solved</p>
           <p className="font-sans font-extrabold tracking-tight text-4xl mb-6">Ops stay online.</p>
           <img src={photos[1]} alt="" className="h-64 w-full object-cover rounded-2xl" />
-        </div>
-      </section>
-
-      <section id="industries" className="container mx-auto px-4 py-20">
-        <div className="max-w-3xl mb-12">
-          <p className="text-xs tracking-[0.2em] uppercase text-white/50 mb-3">Industries</p>
-          <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl leading-tight">The atmospheres we oxygenate.</h2>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            { name: 'Healthcare', slug: 'innovatehealth', Icon: Stethoscope, blurb: 'Voice agents for scheduling, triage, and records—HIPAA-aware, after hours.', items: ['AI voice agents', 'Symptom triage', 'Appointment booking', 'Chart write-back'] },
-            { name: 'FinTech', slug: 'finflow', Icon: Landmark, blurb: 'Onboard faster with AI-powered KYC, fraud flags, and QBO bookkeeping.', items: ['AI-powered KYC', 'Fraud detection', 'QBO automation', 'Loan advisory'] },
-            { name: 'Property Management', slug: 'urbannest', Icon: Building2, blurb: 'A 24/7 concierge for tenants, repairs, leases, and rent follow-ups.', items: ['Tenant voice & chat', 'Work orders', 'Lease files', 'Rent reminders'] },
-            { name: 'Manufacturing', slug: 'lineforge', Icon: Factory, blurb: 'Keep the line breathing with predictive, connected shop-floor AI.', items: ['Predictive maintenance', 'Quality flags', 'Supply signals', 'Downtime alerts'] },
-            { name: 'E-commerce', slug: 'northcart', Icon: ShoppingCart, blurb: 'Storefronts that sell, support, and restock themselves.', items: ['Recommendations', 'Shopping assistants', 'Inventory bots', 'Cart recovery'] },
-          ].map((industry) => (
-            <div key={industry.name} className="rounded-[1.6rem] border border-white/10 bg-white/[0.03] p-8">
-              <industry.Icon className="h-8 w-8 text-violet-300 mb-4" />
-              <h3 className="text-2xl font-extrabold mb-3">{industry.name}</h3>
-              <p className="text-sm text-white/60 mb-6">{industry.blurb}</p>
-              <ul className="space-y-2 text-sm text-white/55 mb-8">
-                {industry.items.map((item) => (
-                  <li key={item} className="flex gap-2"><Check className="h-4 w-4 shrink-0" /> {item}</li>
-                ))}
-              </ul>
-              <Link
-                to={`/client-stories/${industry.slug}`}
-                className="inline-flex w-full items-center justify-center rounded-full bg-white text-black h-11 text-sm font-medium hover:bg-white/90"
-              >
-                See case study
-              </Link>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -254,7 +227,7 @@ const StudioHome = () => {
           </div>
           <Link to="/about" className="inline-flex items-center rounded-full border border-white/20 px-6 py-2.5 text-sm">View About Aioxify</Link>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             ['Dr. Elara Vance', 'Chief AI Oxygenation Officer'],
             ['Jax Solaris', 'Head of AI Engineering'],
@@ -270,16 +243,6 @@ const StudioHome = () => {
             </div>
           ))}
         </div>
-        <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl mb-12">What our clients say</h2>
-        <div className="grid md:grid-cols-3 gap-4">
-          {clientStories.map((s) => (
-            <div key={s.slug} className="rounded-[1.6rem] border border-white/10 p-6 bg-white/[0.03]">
-              <p className="text-white/80 mb-6">“{s.quote}”</p>
-              <p className="font-semibold">{s.person}</p>
-              <p className="text-sm text-white/45">{s.companyName}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section id="faq" className="container mx-auto px-4 py-20 max-w-3xl">
@@ -289,7 +252,7 @@ const StudioHome = () => {
             ['What do I need to get started?', 'A free consultation. We map your stack—EHR, QBO, Shopify, Salesforce—and propose the first automation.'],
             ['What kind of customization is available?', 'Chatbots, voice agents, KYC, tenant ops, custom AI projects, and OpenAI-backed workflows.'],
             ['Do I need to know how to code?', 'No. Operators use no-code automation. Developers can still use our APIs when they want to.'],
-            ['What industries do you serve?', 'Healthcare, FinTech, property management, manufacturing, and e-commerce.'],
+            ['What industries do you serve?', 'The same desks founders already trust us with—quantum summits, multi-venture ops, accounting SaaS, and consumer-goods launches.'],
           ].map(([q, a], i) => (
             <AccordionItem key={q} value={`f-${i}`}>
               <AccordionTrigger className="text-left text-base">{q}</AccordionTrigger>

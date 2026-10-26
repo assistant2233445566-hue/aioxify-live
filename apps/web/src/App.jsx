@@ -23,10 +23,12 @@ import ChatbotPage from '@/pages/ChatbotPage';
 import RobotsPage from '@/pages/RobotsPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import ParticleField from '@/components/animations/ParticleField';
+import PageIntro from '@/components/animations/PageIntro';
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col oxygen-flow-bg relative">
+      <PageIntro />
       <ParticleField />
       <div className="relative z-10 flex flex-col min-h-screen">
         <ScrollToTop />

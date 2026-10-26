@@ -1,14 +1,14 @@
 import React from 'react';
 
 const names = [
-  'InnovateHealth',
-  'FinFlow',
-  'UrbanNest',
-  'Healthcare',
-  'FinTech',
-  'Property',
-  'Manufacturing',
-  'E-commerce',
+  'PUZZLE X',
+  'MATTER',
+  'Longevity Labs',
+  'Soluorient',
+  'GroundScapes',
+  'The Good Life Bars',
+  'SopnoTec',
+  'Aioxify',
 ];
 
 const LogoMarquee = () => {

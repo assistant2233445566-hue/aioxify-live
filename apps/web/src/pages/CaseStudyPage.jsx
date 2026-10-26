@@ -26,8 +26,21 @@ const CaseStudyPage = () => {
           <ArrowLeft className="mr-2 h-4 w-4" /> All case studies
         </Link>
         <p className="text-xs uppercase tracking-[0.22em] text-violet-300 mb-3">{story.industry}</p>
-        <h1 className="font-sans font-extrabold text-4xl md:text-6xl tracking-tight mb-4">{story.companyName}</h1>
-        <p className="text-white/50 mb-10">{story.person}</p>
+        <div className="flex items-center gap-4 mb-6">
+          {story.photo && (
+            <img src={story.photo} alt={story.person} className="h-20 w-20 rounded-2xl object-cover border border-white/15" />
+          )}
+          <div>
+            <h1 className="font-sans font-extrabold text-4xl md:text-6xl tracking-tight mb-2">{story.companyName}</h1>
+            <p className="text-white/50">{story.person}</p>
+            {story.role && <p className="text-sm text-white/40">{story.role}</p>}
+          </div>
+        </div>
+        {story.website && (
+          <a href={story.website} target="_blank" rel="noreferrer" className="text-sm text-violet-300 hover:text-white mb-10 inline-block">
+            {story.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+          </a>
+        )}
 
         <blockquote className="text-2xl font-extrabold tracking-tight leading-snug mb-12">
           “{story.quote}”
@@ -47,7 +60,7 @@ const CaseStudyPage = () => {
             <p>{story.challenge}</p>
           </div>
           <div>
-            <h2 className="text-2xl font-extrabold text-white mb-3">What Aioxify deployed</h2>
+            <h2 className="text-2xl font-extrabold text-white mb-3">What Sopnotec deployed</h2>
             <p>{story.solution}</p>
           </div>
           <div>
