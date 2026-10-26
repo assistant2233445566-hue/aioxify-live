@@ -2,5 +2,7 @@
   "installCommand": "npm install --foreground-scripts",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/((?!google06519311b9bb0c4e\\.html).*)", "destination": "/index.html" }
+  ]
 }

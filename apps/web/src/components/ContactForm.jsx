@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { Send } from 'lucide-react';
+import { CONTACT_EMAIL } from '@/lib/contact';
 
 const ContactForm = ({ initialService = '', minimal = false }) => {
   const { toast } = useToast();
@@ -15,34 +16,6 @@ const ContactForm = ({ initialService = '', minimal = false }) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log("Form Data Submitted:", formData);
-    toast({
-      title: "Message Sent! Whoosh!",
-      description: "Thanks for reaching out. We'll be in touch shortly to discuss how Aioxify can help.",
-      variant: "default",
-      className: "bg-primary/10 border-primary text-primary"
-    });
-    
-    setFormData({ name: '', email: '', company: '', service: initialService, message: '' });
-    setIsSubmitting(false);
-    
-    // Play whoosh sound (conceptual)
-    // const audio = new Audio('/sounds/whoosh.mp3'); // Make sure you have this file
-    // audio.play();
-  };
-
   const servicesOptions = [
     { value: "", label: "Select a service interest..." },
     { value: "ai-chatbots", label: "AI Chatbots" },
@@ -53,6 +26,42 @@ const ContactForm = ({ initialService = '', minimal = false }) => {
     { value: "property-ai", label: "AI for Property Management" },
     { value: "general-consultation", label: "General Consultation" }
   ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const serviceLabel = servicesOptions.find((opt) => opt.value === formData.service)?.label || formData.service;
+    const subject = encodeURIComponent(`Aioxify inquiry: ${serviceLabel}`);
+    const body = encodeURIComponent(
+      [
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        formData.company ? `Company: ${formData.company}` : null,
+        `Service: ${serviceLabel}`,
+        '',
+        'Message:',
+        formData.message,
+      ]
+        .filter(Boolean)
+        .join('\n'),
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
+    toast({
+      title: 'Opening email',
+      description: `Your message is addressed to ${CONTACT_EMAIL}. Send it from your mail app.`,
+    });
+
+    setFormData({ name: '', email: '', company: '', service: initialService, message: '' });
+    setIsSubmitting(false);
+  };
 
   return (
     <motion.form 
@@ -114,13 +123,6 @@ const ContactForm = ({ initialService = '', minimal = false }) => {
           )}
         </Button>
       </div>
-      <style jsx>{`
-        @keyframes whoosh {
-          0% { transform: translateX(0) rotate(0deg); opacity: 1;}
-          50% { transform: translateX(10px) rotate(45deg); opacity: 0.5;}
-          100% { transform: translateX(0px) rotate(0deg); opacity: 1;}
-        }
-      `}</style>
     </motion.form>
   );
 };

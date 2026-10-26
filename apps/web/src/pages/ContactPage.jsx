@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Mail, Phone, MapPin, CalendarDays, Send } from 'lucide-react';
+import { Mail, Phone, CalendarDays, Send } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 import CalendlyEmbed from '@/components/CalendlyEmbed';
 import PageHero from '@/components/layout/PageHero';
@@ -38,8 +38,7 @@ const ContactPage = () => {
               <h3 className="text-xl font-semibold mb-4">Direct contact</h3>
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-center gap-3"><Mail className="w-5 h-5 text-primary" /><a href="mailto:breathe@aioxify.com">breathe@aioxify.com</a></li>
-                <li className="flex items-center gap-3"><Phone className="w-5 h-5 text-primary" /><a href="tel:+1800AIOXIFY">+1 (800) AIO-XIFY</a></li>
-                <li className="flex items-start gap-3"><MapPin className="w-5 h-5 text-primary mt-0.5" /><span>123 Innovation Drive, Tech City, TX 75001</span></li>
+                <li className="flex items-center gap-3"><Phone className="w-5 h-5 text-primary" /><a href="tel:+16363308881">+1 636 330 8881</a></li>
               </ul>
             </div>
           </div>

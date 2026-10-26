@@ -8,7 +8,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog.jsx';
-import ContactForm from '@/components/ContactForm';
+import CalendlyEmbed from '@/components/CalendlyEmbed';
+import { CALENDLY_URL } from '@/lib/contact';
 
 const BookCallDialog = ({
   triggerLabel = 'Book a call',
@@ -23,14 +24,18 @@ const BookCallDialog = ({
           {triggerLabel}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] x-card">
+      <DialogContent className="sm:max-w-3xl x-card max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl">Book a free consultation</DialogTitle>
           <DialogDescription>
-            Let&apos;s discuss how Aioxify can oxygenate your business. Fill out the form below.
+            Pick a time on Calendly, or{' '}
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="underline">
+              open the booking page
+            </a>
+            .
           </DialogDescription>
         </DialogHeader>
-        <ContactForm minimal={true} />
+        <CalendlyEmbed />
       </DialogContent>
     </Dialog>
   );

@@ -7,6 +7,11 @@ const Footer = () => (
       <div>
         <p className="tracking-[0.22em] uppercase text-sm mb-3">Aioxify</p>
         <p className="text-sm text-white/45 max-w-xs">Breathe AI, accelerate growth. Chatbots, automation, and industry agents for real operations.</p>
+        <p className="text-sm text-white/55 mt-4">
+          <a href="mailto:breathe@aioxify.com">breathe@aioxify.com</a>
+          <span className="mx-2">·</span>
+          <a href="tel:+16363308881">+1 636 330 8881</a>
+        </p>
       </div>
       <div className="flex gap-16 text-sm text-white/60">
         <div className="flex flex-col gap-2">
