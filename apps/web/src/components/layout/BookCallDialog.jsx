@@ -24,7 +24,7 @@ const BookCallDialog = ({
           {triggerLabel}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-3xl x-card max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-4xl w-[min(96vw,56rem)] x-card max-h-[95vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl">Book a free consultation</DialogTitle>
           <DialogDescription>

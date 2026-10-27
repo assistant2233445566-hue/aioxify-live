@@ -11,6 +11,8 @@ const Footer = () => (
           <a href="mailto:breathe@aioxify.com">breathe@aioxify.com</a>
           <span className="mx-2">·</span>
           <a href="tel:+16363308881">+1 636 330 8881</a>
+          <span className="mx-2">·</span>
+          <a href="tel:+447429733046">+44 7429733046</a>
         </p>
       </div>
       <div className="flex gap-16 text-sm text-white/60">
